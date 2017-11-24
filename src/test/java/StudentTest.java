@@ -5,7 +5,7 @@ import org.junit.Test;
 import otherclasses.Student;
 
 public class StudentTest {
-	Student s = new Student("Erica", "Svensson", 32, 'F', 0.0, 0.0, 0.0);
+	Student s = new Student("Erica", "Svensson", 32, 'F');
 	Student s2 = new Student("Elsa", "Bredskog", 0, 'F', 3.0, 0.7, 2.3);
 
 	@Test
@@ -68,6 +68,21 @@ public class StudentTest {
 		s.setThirdGrade(5.0);
 		double result = s.calculateAverage(5.0);
 		assertEquals((s.getAverageGrade()==result) && (result == 5.0), true);
+	}
+	
+	@Test
+	public void testCalculateAverageWithNoParam() {
+		s.setFirstGrade(5.0);
+		s.setSecondGrade(5.0);
+		s.setThirdGrade(5.0);
+		s.calculateAverage();
+		assertEquals((s.getAverageGrade()==5.0), true);
+	}
+	
+	@Test
+	public void testCalculateAverageWithAllParam() {
+		s.calculateAverage(5.0, 5.0, 5.0);
+		assertEquals(s.getAverageGrade()==5.0, true);
 	}
 
 
